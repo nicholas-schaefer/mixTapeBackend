@@ -29,7 +29,7 @@ app.get('/callback', function(req, res) {
     },
     headers: {
       'Authorization': 'Basic ' + (new Buffer(
-        client_id + ':' + spotify_client_secret
+        spotify_client_id + ':' + spotify_client_secret
       ).toString('base64'))
     },
     json: true
