@@ -12,7 +12,7 @@ app.get('/login', function(req, res) {
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
-      client_id: client_id,
+      client_id: spotify_client_id,
       scope: 'user-read-private user-read-email',
       redirect_uri
     }))
@@ -29,7 +29,7 @@ app.get('/callback', function(req, res) {
     },
     headers: {
       'Authorization': 'Basic ' + (new Buffer(
-        client_id + ':' + client_secret
+        client_id + ':' + spotify_client_secret
       ).toString('base64'))
     },
     json: true
